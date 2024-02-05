@@ -1,0 +1,34 @@
+{
+  "name": "w4_3133_nodejs_express_mongodb_template",
+  "version": "1.0.0",
+  "description": "Advanve mongodb, mongoos and express",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/N1zar0/COMP3133-0001/tree/main/Lab03_101297716_COMP3133"
+  },
+  "keywords": [
+    "mongoose",
+    "mongodb",
+    "express",
+    "REST",
+    "API"
+  ],
+  "author": "Nizar Atassi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/N1zar0/COMP3133-0001/tree/main/Lab03_101297716_COMP3133"
+  },
+  "homepage": "https://github.com/N1zar0/COMP3133-0001/tree/main/Lab03_101297716_COMP3133",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^6.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
