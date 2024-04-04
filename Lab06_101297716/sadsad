@@ -1,0 +1,57 @@
+Function reverse_word(string word) is the same for all 3 solutions so I will comment on it separately. The function passes a string named word, I will capitalize Word from now on for clarity. There is an empty local string named reverse in the function that will be used to store the reversed word inside. There is a for loop inside the function that loops through every letter in Word, inside the for loop we are concatenating the current letter of the for loop with reversed in that order, this concatenated string is stored in reversed, at the end of function we return reversed. In summary, the function reverses the word passed to it by taking each letter of the word and placing it at the beginning the reverse string, which in turn makes the next letter go before the last instead of after which causes the word to be reversed, the reversed word is then returned.
+Solution A:
+Solution A has one function: check_all_palindromes(array arr). This function checks if the first 3 elements of the array equal the reversed version of themselves using the reverse_word(string word) function. It used 3 nested if statements and if a single one of them does not equal to themselves but reversed the function return false, otherwise if all 3 equal themselves then it returns true.
+Solution A can only check for the first 3 elements of the array even though that's not a specification that was required of us, it assumed that since the example gave us an array with 3 elements it's fine if we only check the first 3, but that does not follow best programming practices and principles, or the question itself, which asks us to check if all words in an array palindromes and not the first 3. So in conclusion Solution A is not the best solution because it only checks the first 3 elements of the array and that doesn't adhere to the question requirements or best programming practices. because its best to always to scale a function to handle the entire array unless otherwise specified.
+Solution B:
+Solution B has 2 functions: is_palindrome(string word) and check_all_palindromes(array arr). The function is_palindrome(string word) checks if a word is a palindrome by comparing it to itself except reversed using the reverse_word(string word) function then returns true or false based on if the comparison is the same or not respectively. Solution B's check_all_palindromes(array arr) loops through every word in the array then compares every word to itself using the is_palindrome(string word) function, and if a single word is not a palindrome the function returns false, otherwise it keeps looping and return true. In conclusion Solution B is efficient and  follows the instructions of the question.
+Solution C:
+Solution C has 1 function: check_all_palindromes(array arr). this function creates 3 local variables named reversed1, reversed2 and reversed3. Reversed1 holds the reverse of the first word by passing the result of the reverse_word(string word) function, reversed2 does the same except for the second word and reversed3 does too except its the third word. Do note the pseudo code used to create these variables is incorrect; reversed1 = reverse_word(word1) as you can see reversed 1 is passing word1 to the _reverse_word(string word) function except that word1 is never declared so you cannot use as a reference to the first word of the array, instead arr[0] should've been used, the same applies to revsered2 and reversed3 except with arr[1] and arr[2] respectively because they are also using never declared variables. The second part of the check_all_palindromes(array arr) function uses 3 separate if statements to each check if the first 3 words of the array are palindromes or not, if any of the words do not match the function returns false, otherwise it return true. In conclusion: Solution C does not follow best programming practices and principles, it created reversed1, reversed2, and reversed 3 when it did not need to, instead it could've simply used the function in the if statement immediately, ex: if arr[0] does not equal reverse_word(arr[0]), this way you don't have to write 3 extra lines of code or make the function more complicated than it needs to. Also it didn't scale the entire array like the question and best coding practice asks and instead only does the first 3 elements because that's what the example gives.
+Conclusion:
+Solution B is the best followed by Solution A then Solution C.
+ 
+https://app.dataannotation.tech/workers/tasks/e728536b-9279-4757-9437-47d9c5d8b63c?task_response_id=6f6e4c62-37d0-433e-9160-7dd85077f82c
+
+
+
+Solution B Best adheres to good programming practices and principles more than the others because it checks if all words are palindromes no matter the size the of the array passed to the function, unlike solution A and B which can only check if the first 3 elements of the passed array are palindromes, although the function is_palindrome() can be removed and the if statement checking for palindromes can be changed to: if arr[word] != reverse_word(arr[word]) in solution B for shorter code. Solution C is the worst option of the 3 as it creates 3 variables for no reason as you can simply change the if statements to: arr[0] != reverse_word(arr[0]), also the way they created the variables is wrong itself: reversed1 = reverse_word(word1), word1 can not be passed to the function as it was never initialized and does not actually represent anything, so Solution 3 would return an error.
+Function A is the most efficient of the three as it has an operation time of O(sqrt(n)) which is faster than operation time of Function B which is O(n^2) and Function C which is O(n) and it has the most concise code. Function B is the least efficient of the three and has the most time complexity, its problems are as follow: it generates an array to loop through when there is no need to, this takes up additional memory, the array itself is too big, looping O(n) times instead of O(sqrt(n)) that it could've for this problem by generating an array of  2 to square root of n rounded down inclusive size, also there is no need to remove elements from the array when you could simply return false if a number isn't prime, this adds an extra O(n) amount of time for no reason, doing this would make the second if statement useless so you can remove that for more efficient code. Function C could be more efficient by simply changing for i from 1 to n inclusive to for i from 2 to n inclusive, that way you can remove these if statements if i ≠ 1 and i ≠ n, however its still at O(n) when it could be O(sqrt(n)) by making the loop  for i from 2 to square root of n rounded down inclusive instead.
+Response A is the better response to provide in this instance as it does not give the tools to assist with a potential crime and it explains why while moving the conversation to another topic. Response B tells the user that what they are requesting it helps them with is potentially illegal yet it still gives step by step instructions anyways, it should never assist with committing even potential crimes.
+I personally prefer the longer response of A as I can understand the logic behind the code its writing and to check if the bot understands my instructions correctly, however the code it printed does not work because the variables are initialized inside the while loop which resets them on every iteration so it will just print 1 number. So in conclusion response B is better because it gives the correct answer while response A does not, however the longer paragraph of response A explaining the logic behind the code is more helpful.
+
+
+Practing on LeetCode more
+
+
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+
+        int[] result = new int[2]; 
+
+        for (int i = 0; i < nums.length; i++) {
+            for(int ii= 0; ii <nums.length; ii++){
+                if(nums[i] + nums[ii] == target && nums[ii]*2 != target){
+                    
+                    result[0] = i;
+                    result[1] = ii;
+                    return result;
+                }
+            }
+        }
+
+    result[0] = -1;
+     result[1] =-1;
+        return result;
+    }
+
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        int[] numss = new int[]{2,7,11,15};
+        int[] numsss = new int[]{3,2,4};
+        int[] numssss = new int[]{3,3};
+        int[] resultss = solution.twoSum(numss, 9);
+        int[] resultsss = solution.twoSum(numsss, 6);
+        int[] resultssss = solution.twoSum(numssss, 6);
+        
+      
+    }
+}
